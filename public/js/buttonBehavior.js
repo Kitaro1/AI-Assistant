@@ -32,7 +32,6 @@ const recognition_process = data =>{
 let process_message = (message)=>{
     let process_message = JSON.parse(message);
     if(process_message.action == "gpt_answer" ) {
-        synthetizer.change_pitch(1.5);
         document.getElementById("GPTAnswer").innerText = process_message.message;
         synthetizer.say(process_message.message); 
         is_speaking = true;
