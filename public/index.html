@@ -16,12 +16,25 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    
-    <canvas id="live2d"></canvas>  
-
-    
-    <button id="BeginRecognition">Empezar reconocimiento</button>
-    <div id="TextDetection"></div>
-    <div id="GPTAnswer"></div>
+    <div class="container">
+        <div class="left-section">
+            <h1 class="title">Hablemos con el Padre del Shonen</h1>
+            
+            <!-- <div class="TextDetection"></div>
+            <div class="GPTAnswer"></div> -->
+            <div class="ChatBox">
+                <div class="Message UserMessage">
+                    <div class="MessageContent" id="TextDetection">Mensaje del usuario...</div>
+                </div>
+                <div class="Message GptMessage">
+                    <div class="MessageContent" id="GPTAnswer">Respuesta de GPT...</div>
+                </div>
+            </div>
+            <button id="BeginRecognition" class="BeginRecognition">Empezar reconocimiento</button>
+        </div>
+        <div class="right-section">
+            <canvas id="live2d" class="live2d"></canvas>  
+        </div>
+    </div>
 </body>
 </html>

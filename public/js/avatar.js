@@ -3,9 +3,7 @@ const {
     live2d: { Live2DModel },
 } = PIXI;
 
-// Kalidokit provides a simple easing function
-// (linear interpolation) used for animation smoothness
-// you can use a more advanced easing function if you want
+
 const {
     Face,
     Vector: { lerp },
@@ -13,7 +11,7 @@ const {
 } = Kalidokit;
 
 window.lerp = lerp;
-// Url to Live2D
+
 const modelUrl = "../goku/models/Goku/Goku/Goku 2d3.model3.json";
 
 let currentModel, facemesh;
@@ -27,14 +25,14 @@ const videoElement = document.querySelector(".input_video"),
         view: document.getElementById("live2d"),
         autoStart: true,
         backgroundAlpha: 0,
-        backgroundColor: 0xffffff,
+        // backgroundColor: 0xffffff,
         resizeTo: window,
     });
 
     // load live2d model
     currentModel = await Live2DModel.from(modelUrl, { autoInteract: false });
     currentModel.scale.set(0.4);
-    currentModel.interactive = true;
+    currentModel.interactive = false;
     currentModel.anchor.set(0.5, 0.5);
     currentModel.position.set(window.innerWidth * 0.5, window.innerHeight * 0.8);
 
