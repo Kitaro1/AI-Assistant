@@ -72,13 +72,14 @@
   color: #333;
 }
 
-.live2d {
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
-  background-color: transparent;
+.live2d{
+    position: fixed;  
+    right: 0; 
+    top: 0;
+    width:50%;
+    height: 100%;
+    
+    
 }
 .container {
   /* display: flex;
@@ -102,10 +103,11 @@
 }
 
 .left-section {
-  flex: 1;
-  /* border-right: 1px solid #ccc; */
-  background-color: transparent;
-  height: 100%;
+    flex: 1;
+    padding: 20px;
+    /* border-right: 1px solid #ccc; */
+    width: 50%;
+    
 }
 
 .right-section {
