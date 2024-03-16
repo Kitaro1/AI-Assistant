@@ -1,0 +1,26 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Goku 2d3.moc3",
+		"Textures": [
+			"Goku 2d3.4096/texture_00.png"
+		],
+		"Physics": "Goku 2d3.physics3.json",
+		"DisplayInfo": "Goku 2d3.cdi3.json"
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	]
+}
