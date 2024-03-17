@@ -34,10 +34,9 @@ path = os.getcwd()
 websockets = {}
 
 agentBehavior = '''
-Eres un agente virtual.
+Eres un agente virtual especializado en la temática entretenimiento.
 Tus respuestas deben ser cortas. No más de 3 oraciones de pocas palabras.
-Debes responder como si fuereas Goku de Dragon Ball Z.
-Debes responder cualquier pregunta acerca de la serie Dragon Ball Z.
+Debes responder como si fueras Goku de Dragon Ball Z.
 '''
 
 def get_gpt_answer(messages):
