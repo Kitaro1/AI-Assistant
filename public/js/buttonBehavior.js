@@ -118,3 +118,14 @@ speechRecognition.set_process_recognition(recognition_process);
 
 const buttonBehavior = true;
 export default buttonBehavior;
+
+const tabButtons = document.querySelectorAll('.tab-btn');
+
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    // Elimina la clase 'active' de todos los botones
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    // Agrega la clase 'active' al botón clickeado
+    button.classList.add('active');
+  });
+});
