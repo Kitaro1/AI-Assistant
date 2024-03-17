@@ -1,136 +1,145 @@
 @font-face {
-    font-family: 'Saiyan-Sans'; /* Nombre de la fuente */
-    src: url('../fonts/Saiyan-Sans.ttf') format('truetype'); /* Ruta de la fuente descargada */
+  font-family: "Saiyan-Sans"; /* Nombre de la fuente */
+  src: url("../fonts/Saiyan-Sans.ttf") format("truetype"); /* Ruta de la fuente descargada */
 }
 
 .BeginRecognition {
-    padding: 10px 20px;
-    width: 600px;
-    font-size: 16px;
-    font-family: 'Saiyan-Sans', sans-serif;
-    background-color: #38e08c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    outline: none;
-    transition: background-color 0.3s;
-    
+  border: 0;
+  background-image: linear-gradient(150deg, #9500, #09f, #00ddff);
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  font-size: 18px;
+  padding: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: absolute;
+  margin-right: 20px;
+  right: 0;
+}
+
+button span {
+  background-color: #111;
+  padding: 16px 24px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+button:hover span {
+  background: none;
+}
+
+button:active {
+  transform: scale(0.9);
 }
 
 .TextDetection {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
-    /* position: absolute; */
-    top: 300px;
-    left: 30px;
-    width: 100px;
-    border: black;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  /* position: absolute; */
+  top: 300px;
+  left: 30px;
+  width: 100px;
+  border: black;
 }
 
 .GPTAnswer {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #333;
-    position: absolute;
-    top: 300px;
-    left: 30px;
-    width: 100px;
-    border: black;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  position: absolute;
+  top: 300px;
+  left: 30px;
+  width: 100px;
+  border: black;
 }
 .ChatBox {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    margin: 20px auto;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    max-height: 270px;
-    overflow: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  max-height: 270px;
+  overflow: auto;
 }
 
 .Message {
-    margin-bottom: 10px;
-    border-radius: 5px;
-    width: fit-content; 
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: fit-content;
 }
 
 .UserMessage {
-    background-color: #cbe6ff;
-    align-self: flex-end;
-    border-radius: 10px;
-    width: auto;
-
+  background-color: #cbe6ff;
+  align-self: flex-end;
+  border-radius: 10px;
+  width: auto;
 }
 
 .GptMessage {
-    background-color: #ffd6cc;
-    align-self: flex-start;
-    border-radius: 10px;
-    width: auto;
+  background-color: #ffd6cc;
+  align-self: flex-start;
+  border-radius: 10px;
+  width: auto;
 }
 
 .MessageContent {
-    font-size: 16px;
-    color: #333;
-    padding: 10px;
+  font-size: 16px;
+  color: #333;
+  padding: 10px;
 }
 
-.live2d{
-    position: fixed;  
-    right: 0; 
-    top: 0;
-    width: 75%;
-    height: 100%;
-    z-index: -1;
-    
+.live2d {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 75%;
+  height: 100%;
+  z-index: -1;
 }
 .container {
-    /* display: flex;
+  /* display: flex;
     justify-content: space-between;
     align-items: flex-start;
     background: url('../image/c9p7mmhmjudz.png') no-repeat center center fixed;
     background-size: cover;
     width: auto;
     height: 100%;  */
-    display: flex;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: url('../image/c9p7mmhmjudz.png'); /* Color de fondo del contenedor */
-        background-size: cover; /* Para que la imagen de fondo cubra todo el contenedor */
-    background-position: center; /* Para centrar la imagen de fondo */
-    background-attachment: fixed; /* Para mantener la imagen de fondo fija mientras se desplaza la página */
-    overflow: hidden; /* Para evitar el desbordamiento */
-    z-index: -1;
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../image/c9p7mmhmjudz.png"); /* Color de fondo del contenedor */
+  background-size: cover; /* Para que la imagen de fondo cubra todo el contenedor */
+  background-position: center; /* Para centrar la imagen de fondo */
+  background-attachment: fixed; /* Para mantener la imagen de fondo fija mientras se desplaza la página */
+  overflow: hidden; /* Para evitar el desbordamiento */
+  z-index: -1;
 }
 
 .left-section {
-
-    padding: 20px;
-    /* border-right: 1px solid #ccc; */
-    width: 50%;
-    
+  padding: 20px;
+  /* border-right: 1px solid #ccc; */
+  width: 50%;
+  position: relative;
 }
 
 .right-section {
-
-    padding: 20px;
-    width: 50%;
-    background-color: transparent;
+  padding: 20px;
+  width: 50%;
+  background-color: transparent;
 }
 .title {
-    font-size: 72px;
-    font-family: 'Saiyan-Sans', sans-serif;
-    color: #ffd700;
-    text-align: center;
-    margin-top: 20px;
-    text-shadow: -1px -1px 0 #000,  
-                 1px -1px 0 #000,
-                 -1px 1px 0 #000,
-                 1px 1px 0 #000;
+  font-size: 72px;
+  font-family: "Saiyan-Sans", sans-serif;
+  color: #ffd700;
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }

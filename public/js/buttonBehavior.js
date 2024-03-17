@@ -75,8 +75,7 @@ let buttonRecognition = document.getElementById("BeginRecognition");
 
 let stop_recognition = () => {
   speechRecognition.stop_recognition();
-  buttonRecognition.style.background = "#38e08c";
-  buttonRecognition.innerText = "Empezar reconocimiento";
+  buttonRecognition.innerHTML = `<span>Comience a hablar</span>`;
   recognition_started = false;
   buttonRecognition.disabled = true;
 };
@@ -85,8 +84,7 @@ buttonRecognition.onmousedown = () => {
   if (!recognition_started) {
     speechRecognition.start_recognition();
     recognition_started = true;
-    buttonRecognition.innerText = "reconociento";
-    buttonRecognition.style.background = "#FF0000";
+    buttonRecognition.innerHTML = `<span>Procesando</span>`;
   } else {
     stop_recognition();
   }
