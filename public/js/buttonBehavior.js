@@ -85,7 +85,8 @@ buttonRecognition.onmousedown = () => {
     speechRecognition.start_recognition();
     recognition_started = true;
     buttonRecognition.innerHTML = `<span>Procesando</span>`;
-  } else {
+  } 
+  else {
     stop_recognition();
   }
 };
@@ -93,6 +94,7 @@ buttonRecognition.onmousedown = () => {
 buttonRecognition.onmouseup = (e) => {
   if (mouse_hover) {
     stop_recognition();
+  }else{
   }
 };
 
