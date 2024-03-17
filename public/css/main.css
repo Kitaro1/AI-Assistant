@@ -33,27 +33,7 @@ button:active {
   transform: scale(0.9);
 }
 
-.TextDetection {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #333;
-  /* position: absolute; */
-  top: 300px;
-  left: 30px;
-  width: 100px;
-  border: black;
-}
 
-.GPTAnswer {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #333;
-  position: absolute;
-  top: 300px;
-  left: 30px;
-  width: 100px;
-  border: black;
-}
 .ChatBox {
   position: relative;
   display: flex;
@@ -172,4 +152,8 @@ button:active {
   padding: 5px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.3);
+}
+
+.Oculto{
+  display: none;
 }

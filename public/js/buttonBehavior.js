@@ -27,16 +27,19 @@ synthetizer.set_onEnd_synthetizer(() => {
 
 const recognition_process = (data) => {
   //nuevo
-  const chatBox = document.querySelector(".ChatBox");
+  //const chatBox = document.querySelector(".ChatBox");
+  const chatBox = document.querySelector(
+    `.ChatBox[class*="${window.actualTab}"]`
+  );
 
   // Eliminar elemento TextDetection si existe
-  const textDetectionElement = document.getElementById("TextDetection");
+  const textDetectionElement = document.getElementById(`TextDetection${window.actualTab}`);
   if (textDetectionElement) {
     textDetectionElement.remove();
   }
 
   // Eliminar elemento GPTAnswer si existe
-  const gptAnswerElement = document.getElementById("GPTAnswer");
+  const gptAnswerElement = document.getElementById(`GPTAnswer${window.actualTab}`);
   if (gptAnswerElement) {
     gptAnswerElement.remove();
   }
@@ -47,7 +50,8 @@ const recognition_process = (data) => {
   chatBox.appendChild(userMessageDiv);
 
   stop_recognition();
-  ws.send({ action: "answerChat", message: data });
+  console.log("El usuario tiene el tab: ", window.actualTab);
+  ws.send({ action: "answerChat", message: data, tab: window.actualTab });
 };
 
 let process_message = (message) => {
@@ -55,7 +59,11 @@ let process_message = (message) => {
   if (process_message.action == "gpt_answer") {
     synthetizer.change_pitch(1.5);
     //nuevo
-    const chatBox = document.querySelector(".ChatBox");
+    //onst chatBox = document.querySelector(".ChatBox");
+    const chatBox = document.querySelector(
+      `.ChatBox[class*="${window.actualTab}"]`
+    );
+
     const gptMessageDiv = document.createElement("div");
     gptMessageDiv.classList.add("Message", "GptMessage");
     gptMessageDiv.innerHTML = `<div class="MessageContent">${process_message.message}</div>`;
@@ -85,8 +93,7 @@ buttonRecognition.onmousedown = () => {
     speechRecognition.start_recognition();
     recognition_started = true;
     buttonRecognition.innerHTML = `<span>Procesando</span>`;
-  } 
-  else {
+  } else {
     stop_recognition();
   }
 };
@@ -94,7 +101,7 @@ buttonRecognition.onmousedown = () => {
 buttonRecognition.onmouseup = (e) => {
   if (mouse_hover) {
     stop_recognition();
-  }else{
+  } else {
   }
 };
 
@@ -119,13 +126,27 @@ speechRecognition.set_process_recognition(recognition_process);
 const buttonBehavior = true;
 export default buttonBehavior;
 
-const tabButtons = document.querySelectorAll('.tab-btn');
+const tabButtons = document.querySelectorAll(".tab-btn");
 
-tabButtons.forEach(button => {
-  button.addEventListener('click', () => {
+tabButtons.forEach((button) => {
+  button.addEventListener("click", () => {
     // Elimina la clase 'active' de todos los botones
-    tabButtons.forEach(btn => btn.classList.remove('active'));
+    tabButtons.forEach((btn) => btn.classList.remove("active"));
     // Agrega la clase 'active' al botón clickeado
-    button.classList.add('active');
+    button.classList.add("active");
+    //obtiene el mensaje del span del button
+    const message = button.innerText;
+    window.actualTab = message;
+    console.log("El tab se ha cambiado a: ", window.actualTab);
+
+    // Obtiene el chatbox actual y el nuevo
+    const currentChatBox = document.querySelector(".ChatBox:not(.Oculto)");
+    const newChatBox = document.querySelector(
+      `.ChatBox[class*="${window.actualTab}"]`
+    );
+
+    // Muestra el nuevo chatbox y oculta el actual
+    currentChatBox.classList.add("Oculto");
+    newChatBox.classList.remove("Oculto");
   });
 });

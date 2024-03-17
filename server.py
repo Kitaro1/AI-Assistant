@@ -33,11 +33,29 @@ path = os.getcwd()
 
 websockets = {}
 
-agentBehavior = '''
-Eres un agente virtual especializado en la temática entretenimiento.
-Tus respuestas deben ser cortas. No más de 3 oraciones de pocas palabras.
-Debes responder como si fueras Goku de Dragon Ball Z.
-'''
+agentBehaviors = {
+  "Entretenimiento": '''
+    Eres un agente virtual especializado en la temática entretenimiento.
+    Tus respuestas deben ser cortas. No más de 3 oraciones de pocas palabras.
+    Debes responder como si fueras Goku de Dragon Ball Z.
+  ''',
+  "Deportes": '''
+    Eres un agente virtual especializado en la temática deportes.
+    Tus respuestas deben ser cortas. No más de 3 oraciones de pocas palabras.
+    Debes responder como si fueras Goku de Dragon Ball Z.
+  ''',
+  "Música": '''
+    Eres un agente virtual especializado en la temática música.
+    Tus respuestas deben ser cortas. No más de 3 oraciones de pocas palabras.
+    Debes responder como si fueras Goku de Dragon Ball Z.
+  ''',
+  "Historia": '''
+    Eres un agente virtual especializado en la temática historia.
+    Tus respuestas deben ser cortas. No más de 3 oraciones de pocas palabras.
+    Debes responder como si fueras Goku de Dragon Ball Z.
+  '''
+}
+
 
 def get_gpt_answer(messages):
     completion = client.chat.completions.create(
@@ -47,12 +65,19 @@ def get_gpt_answer(messages):
     return completion.choices[0].message.content
 def process_message(data,websocket):
     print(data)
-    if data["action"] == "registerID":
-        websockets[data["id"]] = {"ws" : websocket, "chat_history":[{"role": "system", "content": agentBehavior}]}
+    if  data["action"] == "registerID":
+        print("registerID")
+        websockets["Entretenimiento"] = {"ws" : websocket, "chat_history":[{"role": "system", "content": agentBehaviors["Entretenimiento"]}]}
+        websockets["Deportes"] = {"ws" : websocket, "chat_history":[{"role": "system", "content": agentBehaviors["Deportes"]}]}
+        websockets["Música"] = {"ws" : websocket, "chat_history":[{"role": "system", "content": agentBehaviors["Música"]}]}
+        websockets["Historia"] = {"ws" : websocket, "chat_history":[{"role": "system", "content": agentBehaviors["Historia"]}]}
     elif data["action"] == "answerChat":
-        websockets[data["id"]]["chat_history"].append({"role":"user","content":data["message"]})
-        response = get_gpt_answer(websockets[data["id"]]["chat_history"])
-        websockets[data["id"]]["chat_history"].append({"role":"assistant","content":response})
+        print("answer chat")
+        print(data["tab"])
+        print(websockets[data["tab"]]["chat_history"])
+        websockets[data["tab"]]["chat_history"].append({"role":"user","content":data["message"]})
+        response = get_gpt_answer(websockets[data["tab"]]["chat_history"])
+        websockets[data["tab"]]["chat_history"].append({"role":"assistant","content":response})
         websocket.send_data({"action":"gpt_answer","message":response})
     else:
         print("no action")

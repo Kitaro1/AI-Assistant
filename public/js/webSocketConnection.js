@@ -3,6 +3,7 @@ let callback = data => console.log(data)
 let id;
 connection.onopen = () =>{
     id = Math.random().toString(16).slice(2);
+    window.actualTab = "Entretenimiento";
     connection.send(JSON.stringify({id,action:"registerID"}))
 }
 
