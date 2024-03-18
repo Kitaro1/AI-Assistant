@@ -125,9 +125,9 @@ speechRecognition.set_process_recognition(recognition_process);
 
 const tabBackgrounds = {
   "Entretenimiento": "url('../image/c9p7mmhmjudz.png')",
-  "Deportes": "url('../image/sports-for-health-conference-2022.jpg')",
+  "Deportes": "url('../image/sport.jpg')",
   "Música": "url('../image/musica.jpg')",
-  "Historia": "url('../image/historia.jpg')"
+  "Historia": "url('../image/historia4.jpg')"
 };
 
 const buttonBehavior = true;
