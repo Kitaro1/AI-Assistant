@@ -123,6 +123,13 @@ document.body.onmousemove = (e) => {
 
 speechRecognition.set_process_recognition(recognition_process);
 
+const tabBackgrounds = {
+  "Entretenimiento": "url('../image/c9p7mmhmjudz.png')",
+  "Deportes": "url('../image/sports-for-health-conference-2022.jpg')",
+  "Música": "url('../image/musica.jpg')",
+  "Historia": "url('../image/historia.jpg')"
+};
+
 const buttonBehavior = true;
 export default buttonBehavior;
 
@@ -139,6 +146,8 @@ tabButtons.forEach((button) => {
     window.actualTab = message;
     console.log("El tab se ha cambiado a: ", window.actualTab);
 
+    const newBackgroundImage = tabBackgrounds[message];
+    document.querySelector('.container').style.backgroundImage = newBackgroundImage;
     // Obtiene el chatbox actual y el nuevo
     const currentChatBox = document.querySelector(".ChatBox:not(.Oculto)");
     const newChatBox = document.querySelector(
